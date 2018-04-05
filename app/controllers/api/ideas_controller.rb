@@ -1,5 +1,6 @@
 class Api::IdeasController < ApplicationController
-before_action :set_idea, only: [:show, :update, :destroy]
+  before_action :set_idea, only: [:show, :update, :destroy]
+
   def index
     render json: Idea.all
   end

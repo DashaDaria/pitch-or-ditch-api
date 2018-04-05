@@ -7,7 +7,7 @@ end
 
 namespace :api do
   resources :categories, only: [:index, :show] do
-    resources :ideas, only: [:show]
+    resources :ideas, only: [:index]
   end
 end
 
