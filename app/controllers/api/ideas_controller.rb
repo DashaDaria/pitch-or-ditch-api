@@ -1,5 +1,5 @@
 class Api::IdeasController < ApplicationController
-
+before_action :set_idea, only: [:show, :update, :destroy]
   def index
     render json: Idea.all
   end
@@ -13,9 +13,17 @@ class Api::IdeasController < ApplicationController
     end
   end
 
+  def show
+    render json: @idea
+  end
+
   private
   def idea_params
     params.require(:idea).permit(:category_id, :name, :content, :author)
+  end
+
+  def set_idea
+    @idea = Idea.find(params[:id])
   end
 
 end
