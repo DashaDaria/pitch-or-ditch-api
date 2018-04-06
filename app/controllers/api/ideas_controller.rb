@@ -2,16 +2,7 @@ class Api::IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :update, :destroy]
 
   def index
-    render json: Idea.all
-  end
-
-  def create
-    idea = Idea.new(idea_params)
-    if idea.save
-      render json: idea
-    else
-      render json: {message: idea.errors}, status: 400
-    end
+    render json: Idea.all.order(votes: :desc)
   end
 
   def show
@@ -22,7 +13,7 @@ class Api::IdeasController < ApplicationController
     if @idea.update(idea_params)
       render json: @idea
     else
-      render json: {message: idea.errors}, status: 400
+      render json: { message: @idea.errors }, status: 400
     end
   end
 
@@ -42,5 +33,4 @@ class Api::IdeasController < ApplicationController
   def set_idea
     @idea = Idea.find(params[:id])
   end
-
 end

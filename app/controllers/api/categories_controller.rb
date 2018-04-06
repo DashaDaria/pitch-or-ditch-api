@@ -1,5 +1,4 @@
 class Api::CategoriesController < ApplicationController
-
   def index
     render json: Category.all
   end
@@ -8,5 +7,4 @@ class Api::CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     render json: @category.ideas
   end
-
 end
