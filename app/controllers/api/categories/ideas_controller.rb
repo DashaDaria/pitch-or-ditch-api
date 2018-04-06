@@ -1,13 +1,13 @@
 class Api::Categories::IdeasController < ApplicationController
+  before_action :set_category, only: [:index, :create]
+
   def index
-    category = Category.find(params[:category_id])
-    ideas    = category.ideas.order(votes: :desc)
+    ideas    = @category.ideas.order(votes: :desc)
     render json: ideas
   end
 
   def create
-    category = Category.find(params[:category_id])
-    idea     = category.ideas.create(idea_params)
+    idea     = @category.ideas.create(idea_params)
     render json: idea
   end
 
@@ -15,5 +15,9 @@ class Api::Categories::IdeasController < ApplicationController
 
   def idea_params
     params.require(:idea).permit(:name, :content, :author)
+  end
+
+  def set_category
+    @category = Category.find(params[:category_id])
   end
 end
