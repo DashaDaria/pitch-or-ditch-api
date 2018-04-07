@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180405054048) do
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "votes"
+    t.integer "votes", default: 0
   end
 
 end
