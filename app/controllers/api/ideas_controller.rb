@@ -27,7 +27,7 @@ class Api::IdeasController < ApplicationController
 
   private
   def idea_params
-    params.require(:idea).permit(:category_id, :name, :content, :author, :votes)
+    params.require(:idea).permit(:votes)
   end
 
   def set_idea
