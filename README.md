@@ -23,9 +23,3 @@ This project is intended to be used with a React front-end which can be found at
 
 ## Built with
 Rails API, PostgresSQL, React, Redux and React-Bootstrap
-
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
